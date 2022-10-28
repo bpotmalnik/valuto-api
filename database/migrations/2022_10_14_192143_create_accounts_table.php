@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create((new Account)->getTable(), function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
+            $table->float('balance')->default(0);
             $table->timestamps();
         });
     }
