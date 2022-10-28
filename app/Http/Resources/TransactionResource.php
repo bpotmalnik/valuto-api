@@ -10,12 +10,10 @@ class TransactionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'account' => [
-                'id' => $this->account->id,
-                'name' => $this->account->name,
-            ],
+            'account_id' => $this->account_id,
+            'account' => new AccountResource($this->account),
             'name' => $this->name,
             'amount' => $this->amount,
-        ]; 
+        ];
     }
 }

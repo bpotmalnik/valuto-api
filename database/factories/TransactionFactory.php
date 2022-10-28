@@ -17,8 +17,8 @@ class TransactionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->address,
-            'amount' => $this->faker->randomFloat(2,0,1000)
+            'name' => $this->faker->unique()->company,
+            'amount' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 }

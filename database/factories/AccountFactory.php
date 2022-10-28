@@ -2,15 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Account;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Account>
  */
 class AccountFactory extends Factory
 {
-
     /**
      * Define the model's default state.
      *
@@ -19,7 +18,8 @@ class AccountFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'name' => Str::ucfirst($this->faker->unique()->safeColorName),
+            'balance' => $this->faker->randomFloat(2, 1, 1000)
         ];
     }
 }
