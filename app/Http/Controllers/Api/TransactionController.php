@@ -7,15 +7,18 @@ use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
 use App\Http\Resources\TransactionResource;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TransactionController extends Controller
 {
-    public function index(): ResourceCollection
+    public function index(Request $request): ResourceCollection
     {
-        $transactions = Transaction::all();
+        $query = Transaction::query();
 
-        return TransactionResource::collection($transactions);
+        return TransactionResource::collection(
+            $query->paginate($request->input('per_page'))
+        );
     }
 
     public function show(Transaction $transaction): TransactionResource
@@ -32,8 +35,7 @@ class TransactionController extends Controller
     public function update(
         UpdateTransactionRequest $request,
         Transaction $transaction
-    ): void
-    {
+    ): void {
         //
     }
 
