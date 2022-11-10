@@ -15,13 +15,14 @@ class Transaction extends Model
         'account_id',
         'name',
         'amount',
-    ];   
+    ];
 
     protected $casts = [
         'decimal:2',
     ];
 
-    public function account(): BelongsTo{
+    public function account(): BelongsTo
+    {
         return $this->belongsTo(Account::class);
-    } 
+    }
 }

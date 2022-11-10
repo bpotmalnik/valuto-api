@@ -19,7 +19,7 @@ class AccountFactory extends Factory
     {
         return [
             'name' => Str::ucfirst($this->faker->unique()->safeColorName),
-            'balance' => $this->faker->randomFloat(2, 1, 1000)
+            'balance' => $this->faker->randomFloat(2, 1, 1000),
         ];
     }
 }

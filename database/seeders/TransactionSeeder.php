@@ -11,7 +11,7 @@ class TransactionSeeder extends Seeder
     public function run(): void
     {
         Account::all()
-          ->each(function(Account $account){
+          ->each(function (Account $account) {
               Transaction::factory()
                   ->count(20)
                   ->for($account)

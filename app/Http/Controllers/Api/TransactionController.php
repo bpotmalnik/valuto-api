@@ -31,7 +31,6 @@ class TransactionController extends Controller
         //
     }
 
-
     public function update(
         UpdateTransactionRequest $request,
         Transaction $transaction
