@@ -13,7 +13,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->foreignUuid('account_id');
             $table->string('name');
-            $table->float('amount');
+            $table->bigInteger('amount');
             $table->timestamps();
         });
     }

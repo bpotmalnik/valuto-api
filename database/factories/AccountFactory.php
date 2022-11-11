@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Brick\Money\Money;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,7 +20,7 @@ class AccountFactory extends Factory
     {
         return [
             'name' => Str::ucfirst($this->faker->unique()->safeColorName),
-            'balance' => $this->faker->randomFloat(2, 1, 1000),
+            'balance' => Money::ofMinor($this->faker->randomNumber(4), 'GBP'),
         ];
     }
 }

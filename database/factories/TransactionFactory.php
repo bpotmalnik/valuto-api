@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Brick\Money\Money;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class TransactionFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->company,
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => Money::ofMinor($this->faker->randomNumber(4), 'GBP'),
         ];
     }
 }
