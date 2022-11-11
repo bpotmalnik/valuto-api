@@ -13,7 +13,7 @@ class TransactionResource extends JsonResource
             'account_id' => $this->account_id,
             'account' => new AccountResource($this->account),
             'name' => $this->name,
-            'amount' => $this->amount,
+            'amount' => $this->amount->getAmount(),
         ];
     }
 }

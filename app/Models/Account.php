@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Money;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,6 @@ class Account extends Model
     ];
 
     protected $casts = [
-        'balance' => 'float',
+        'balance' => Money::class . ':balance',
     ];
 }

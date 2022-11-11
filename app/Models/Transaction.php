@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Money;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,7 @@ class Transaction extends Model
     ];
 
     protected $casts = [
-        'decimal:2',
+        'amount' => Money::class . ':amount',
     ];
 
     public function account(): BelongsTo
